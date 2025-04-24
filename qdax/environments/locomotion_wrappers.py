@@ -11,6 +11,7 @@ from qdax.environments.base_wrappers import QDEnv
 
 FEET_NAMES = {
     "ant": ["$ Body 4", "$ Body 7", "$ Body 10", "$ Body 13"],
+    "go2": ["FL_calf", "FR_calf", "RL_calf", "RR_calf"],
     "halfcheetah": ["ffoot", "bfoot"],
     "walker2d": ["foot", "foot_left"],
     "hopper": ["foot"],
@@ -148,6 +149,7 @@ class FeetContactWrapper(QDEnv):
 # name of the center of gravity
 COG_NAMES = {
     "ant": "$ Torso",
+    "go2": "base_link",
     "halfcheetah": "torso",
     "walker2d": "torso",
     "hopper": "torso",
@@ -285,6 +287,7 @@ class XYPositionWrapper(QDEnv):
 # name of the forward/velocity reward
 FORWARD_REWARD_NAMES = {
     "ant": "reward_forward",
+    "go2": "reward_forward",    
     "halfcheetah": "reward_forward",
     "walker2d": "reward_forward",
     "hopper": "reward_forward",
