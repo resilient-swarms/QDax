@@ -9,6 +9,8 @@ from brax.v1.envs.wrappers import (
     VectorWrapper,
 )
 
+from QDax.brax_envs
+
 from qdax.environments.base_wrappers import QDEnv, StateDescriptorResetWrapper
 from qdax.environments.bd_extractors import (
     get_feet_contact_proportion,
@@ -25,6 +27,8 @@ from qdax.environments.locomotion_wrappers import (
 from qdax.environments.pointmaze import PointMaze
 from qdax.environments.wrappers import CompletedEvalWrapper
 
+from qdax.environments.go2 import go2
+
 # experimentally determinated offset (except for antmaze)
 # should be sufficient to have only positive rewards but no guarantee
 reward_offset = {
@@ -40,6 +44,7 @@ reward_offset = {
     "halfcheetah_uni": 9.231,
     "hopper_uni": 0.9,
     "walker2d_uni": 1.413,
+    "go2_uni": 3.24 # same as ant to start with. may need tweaking
 }
 
 behavior_descriptor_extractor = {
@@ -55,6 +60,7 @@ behavior_descriptor_extractor = {
     "halfcheetah_uni": get_feet_contact_proportion,
     "hopper_uni": get_feet_contact_proportion,
     "walker2d_uni": get_feet_contact_proportion,
+    "go2_uni": get_feet_contact_proportion
 }
 
 _qdax_envs = {
@@ -94,6 +100,9 @@ _qdax_custom_envs = {
         "kwargs": [{"minval": [-30.0, -30.0], "maxval": [30.0, 30.0]}, {}],
     },
     "ant_uni": {"env": "ant", "wrappers": [FeetContactWrapper], "kwargs": [{}, {}]},
+
+    "go2_uni": {"env": "go2", "wrappers": [FeetContactWrapper], "kwargs": [{}, {}]},
+    
     "humanoid_uni": {
         "env": "humanoid",
         "wrappers": [FeetContactWrapper],

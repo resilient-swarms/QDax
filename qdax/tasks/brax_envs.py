@@ -23,6 +23,7 @@ from qdax.custom_types import (
     RNGKey,
 )
 
+from qdax.environments.go2 import go2
 
 def make_policy_network_play_step_fn_brax(
     env: brax.envs.Env,
