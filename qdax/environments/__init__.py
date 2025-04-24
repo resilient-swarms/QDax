@@ -9,8 +9,6 @@ from brax.v1.envs.wrappers import (
     VectorWrapper,
 )
 
-from QDax.brax_envs
-
 from qdax.environments.base_wrappers import QDEnv, StateDescriptorResetWrapper
 from qdax.environments.bd_extractors import (
     get_feet_contact_proportion,
